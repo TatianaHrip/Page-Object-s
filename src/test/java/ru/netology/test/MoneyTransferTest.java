@@ -21,8 +21,8 @@ public class MoneyTransferTest {
 
     @Test
     void transferMoneyOneFromTwo() {
-        val moneyTransferPage = (val) dashboardPage.refillOneFromTwo();
-        val moneyTransferInfo = (val) DataHelper.getMoneyTransferInfo(dashboardPage.getSecondCardNumber(),
+        var moneyTransferPage =  dashboardPage.refillOneFromTwo();
+        var moneyTransferInfo =  DataHelper.getMoneyTransferInfo(dashboardPage.getSecondCardNumber(),
                 dashboardPage.getSecondCardSum() / 10);
         moneyTransferPage.refillAction(moneyTransferInfo);
         dashboardPage.updateAmounts();
@@ -35,8 +35,8 @@ public class MoneyTransferTest {
 
     @Test
     void transferMoneyTwoFromOne() {
-        val moneyTransferPage = (val) dashboardPage.refillTwoFromOne();
-        val moneyTransferInfo = (val) DataHelper.getMoneyTransferInfo(dashboardPage.getFirstCardNumber(),
+        var moneyTransferPage =   dashboardPage.refillTwoFromOne();
+        var moneyTransferInfo =  DataHelper.getMoneyTransferInfo(dashboardPage.getFirstCardNumber(),
                 dashboardPage.getFirstCardSum() / 10);
         moneyTransferPage.refillAction(moneyTransferInfo);
         dashboardPage.updateAmounts();
@@ -48,16 +48,16 @@ public class MoneyTransferTest {
 
     @Test
     void transferMoneyOneFromInvalidNumber() {
-        val moneyTransferPage = (val) dashboardPage.refillOneFromTwo();
-        val moneyTransferInfo = (val) DataHelper.getInvalidMoneyTransferInfo(dashboardPage.getSecondCardSum() / 10);
+        var moneyTransferPage =  dashboardPage.refillOneFromTwo();
+        var moneyTransferInfo =  DataHelper.getInvalidMoneyTransferInfo(dashboardPage.getSecondCardSum() / 10);
         moneyTransferPage.refillActionError(moneyTransferInfo);
         dashboardPage.isVisible();
     }
 
     @Test
     void zeroTransferMoneyTwoFromOne() {
-        val moneyTransferPage = (val) dashboardPage.refillTwoFromOne();
-        val moneyTransferInfo = (val) DataHelper.getMoneyTransferInfo(dashboardPage.getFirstCardNumber(),
+        var moneyTransferPage =  dashboardPage.refillTwoFromOne();
+        var moneyTransferInfo =  DataHelper.getMoneyTransferInfo(dashboardPage.getFirstCardNumber(),
                 dashboardPage.getFirstCardSum());
         moneyTransferPage.refillAction(moneyTransferInfo);
         dashboardPage.updateAmounts();
@@ -68,8 +68,8 @@ public class MoneyTransferTest {
 
     @Test
     void cancelTransferMoney() {
-        val moneyTransferPage = (val) dashboardPage.refillOneFromTwo();
-        val moneyTransferInfo = (val) DataHelper.getMoneyTransferInfo(dashboardPage.getSecondCardNumber(),
+        var moneyTransferPage =  dashboardPage.refillOneFromTwo();
+        var moneyTransferInfo =  DataHelper.getMoneyTransferInfo(dashboardPage.getSecondCardNumber(),
                 dashboardPage.getSecondCardSum() / 10);
         moneyTransferPage.cancelAction(moneyTransferInfo);
         dashboardPage.updateAmounts();
@@ -81,8 +81,8 @@ public class MoneyTransferTest {
 
     @Test
     void transferMoneyExcessAmount() {
-        val moneyTransferPage = (val) dashboardPage.refillOneFromTwo();
-        val moneyTransferInfo = (val) DataHelper.getMoneyTransferInfo(dashboardPage.getSecondCardNumber(),
+        var moneyTransferPage =  dashboardPage.refillOneFromTwo();
+        var moneyTransferInfo =  DataHelper.getMoneyTransferInfo(dashboardPage.getSecondCardNumber(),
                 dashboardPage.getSecondCardSum() + 10);
         moneyTransferPage.refillAction(moneyTransferInfo);
         dashboardPage.updateAmounts();
